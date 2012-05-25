@@ -4225,3 +4225,55 @@ form .buttons {
   margin: 0.25em 0 0;
   color: #555555;
 }
+.app-list {
+  list-style: none;
+  margin: 0 -6px;
+}
+.app-list .module {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1em 0 0;
+  padding: 0 6px 6px;
+  border-bottom: 1px solid #eeeeee;
+}
+.app-list .module a {
+  color: #555555;
+}
+.app-list .model {
+  overflow: hidden;
+  margin: 0;
+  padding: 6px;
+  font-size: 16px;
+  line-height: 20px;
+  -moz-transition: background-color 0.25s;
+  -ms-transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s;
+  transition: background-color 0.25s;
+  border-bottom: 1px solid #eeeeee;
+}
+.app-list .model:hover {
+  background-color: #eeeeee;
+}
+.app-list .model-name {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+}
+.app-list .actions {
+  float: right;
+  list-style: none;
+  margin: 0;
+}
+.app-list .actions li {
+  margin-left: 0.5em;
+  display: inline;
+}
+.well > .nav-list,
+.well > .nav-list > li > a {
+  margin-left: -19px;
+  margin-right: -19px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
