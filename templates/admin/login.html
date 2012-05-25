@@ -10,6 +10,8 @@
 
 {% block breadcrumbs %}{% endblock %}
 
+{% block main_classes %}span12{% endblock main_classes %}
+
 {% block content %}
 {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
 <p class="alert alert-error">

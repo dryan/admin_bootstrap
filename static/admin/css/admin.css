@@ -4177,6 +4177,13 @@ a.badge:hover {
 body {
   padding-top: 60px;
 }
+body  > .container  > .breadcrumb {
+  margin-top: -22px;
+  padding-top: 9px;
+}
+h1 {
+  margin: 0 0 20px;
+}
 form .buttons {
   margin: 2em 0 0;
   text-align: right;
@@ -4290,6 +4297,9 @@ form .buttons {
   display: inline;
   margin-left: 0.5em;
 }
+h1 + .object-tools {
+  margin-top: -20px;
+}
 #searchbar {
   width: 168px;
   margin-right: 5px;
@@ -4301,6 +4311,9 @@ form .buttons {
 }
 #sb .well h2:first-child {
   margin-top: -8px;
+}
+.dashboard #sb {
+  margin-top: 55px;
 }
 .actions {
   margin: 0 0 20px;
@@ -4364,4 +4377,7 @@ legend + .form-row {
 }
 label.required {
   font-weight: bold;
+}
+#reset-password input {
+  margin-bottom: 0;
 }

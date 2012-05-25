@@ -2,6 +2,16 @@
 
 body {
     padding-top: 60px;
+    & > .container {
+        & > .breadcrumb {
+            margin-top: -22px;
+            padding-top: 9px;
+        }
+    }
+}
+
+h1 {
+    margin: 0 0 20px;
 }
 
 form {
@@ -122,6 +132,10 @@ form {
     }
 }
 
+h1 + .object-tools {
+    margin-top: -20px;
+}
+
 #searchbar {
     width: 168px;
     margin-right: 5px;
@@ -137,6 +151,12 @@ form {
                 margin-top: -8px;
             }
         }
+    }
+}
+
+.dashboard {
+    #sb {
+        margin-top: 55px;
     }
 }
 
@@ -219,4 +239,10 @@ legend + .form-row {
 
 label.required {
     font-weight: bold;
+}
+
+#reset-password {
+    input {
+        margin-bottom: 0;
+    }
 }
