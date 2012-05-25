@@ -70,7 +70,7 @@
 	    {% endblock messages %}
 
 		<div class="row">
-			<div class="span9" id="main">
+			<div class="{% block main_classes %}span9{% endblock main_classes %}" id="main">
 		        {% block pretitle %}{% endblock %}
 		        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
 	        	{% block content %}
@@ -95,6 +95,7 @@
 		django.jQuery	=	jQuery;
 	</script>
 	<script src="{% static "admin/js/bootstrap-dropdown.js" %}"></script>
+	<script src="{% static "admin/js/bootstrap-alert.js" %}"></script>
 	{% block extrascripts %}{% endblock extrascripts %}
 </body>
 </html>
