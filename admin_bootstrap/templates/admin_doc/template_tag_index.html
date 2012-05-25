@@ -1,0 +1,45 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+	<li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> <span class="divider">/</span></li>
+	<li><a href="{% url 'django-admindocs-docroot' %}">{% trans 'Documentation' %}</a> <span class="divider">/</span></li>
+	<li>{% trans 'Tags' %}</li>
+</ul>
+{% endblock %}
+{% block title %}Template tags{% endblock %}
+
+{% block content %}
+<h1>Template tag documentation</h1>
+
+{% regroup tags|dictsort:"library" by library as tag_libraries %}
+{% for library in tag_libraries %}
+<div class="module">
+    <h2>{% firstof library.grouper "Built-in tags" %}</h2>
+    {% if library.grouper %}<p class="small quiet">To use these tags, put <code>{% templatetag openblock %} load {{ library.grouper }} {% templatetag closeblock %}</code> in your template before using the tag.</p><hr />{% endif %}
+    {% for tag in library.list|dictsort:"name" %}
+    <h3 id="{{ library.grouper|default_if_none:"built_in" }}-{{ tag.name }}">{{ tag.name }}</h3>
+    <h4>{{ tag.title|striptags }}</h4>
+    {{ tag.body }}
+    {% if not forloop.last %}<hr />{% endif %}
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+{% regroup tags|dictsort:"library" by library as tag_libraries %}
+<ul class="nav nav-list well">
+{% for library in tag_libraries %}
+    <li class="nav-header">{% firstof library.grouper "Built-in tags" %}</li>
+    {% for tag in library.list|dictsort:"name" %}
+        <li><a href="#{{ library.grouper|default_if_none:"built_in" }}-{{ tag.name }}">{{ tag.name }}</a></li>
+    {% endfor %}
+{% endfor %}
+</ul><!-- end .nav-list -->
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{% load i18n %}
+<div class="form-actions">
+{% if show_delete_link %}<a href="delete/" class="btn btn-danger pull-left"><i class="icon-trash icon-white"></i> {% trans "Delete" %}</a>{% endif %}
+{% if show_save_as_new %}<input type="submit" class="btn" value="{% trans 'Save as new' %}" name="_saveasnew" {{ onclick_attrib }}/>{%endif%}
+{% if show_save_and_add_another %}<button type="submit" class="btn" value="{% trans 'Save and add another' %}" name="_addanother" {{ onclick_attrib }}><i class="icon-plus"></i> {% trans 'Save and add another' %}</button>{% endif %}
+{% if show_save_and_continue %}<button type="submit" class="btn" value="{% trans 'Save and continue editing' %}" name="_continue" {{ onclick_attrib }}><i class="icon-ok"></i> {% trans 'Save and continue editing' %}</button>{% endif %}
+{% if show_save %}<button type="submit" class="btn btn-primary" value="{% trans 'Save' %}" class="default" name="_save" {{ onclick_attrib }}><i class="icon-ok icon-white"></i> {% trans 'Save' %}</button>{% endif %}
+</div>

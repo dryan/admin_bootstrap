@@ -1,0 +1,248 @@
+@import "bootstrap";
+
+body {
+    padding-top: 60px;
+    & > .container {
+        & > .breadcrumb {
+            margin-top: -22px;
+            padding-top: 9px;
+        }
+    }
+}
+
+h1 {
+    margin: 0 0 20px;
+}
+
+form {
+    .buttons {
+        margin: 2em 0 0;
+        text-align: right;
+    }
+}
+
+#login-form {
+    width: 220px;
+    margin: 0 auto;
+}
+
+.errorlist {
+    margin: 0;
+    list-style: none;
+    li {
+        .alert;
+        .alert-error;
+        margin: 0 0 1em;
+    }
+}
+
+.well.nav-list {
+    padding-left: 19px;
+    padding-right: 19px;
+    & > li > a,
+    .nav-header {
+        margin-left: -19px;
+        margin-right: -19px;
+    }
+    .nav-header:first-child {
+        padding-top: 0;
+        margin-top: -6px;
+    }
+    & > li:last-child {
+        margin-bottom: -6px;
+    }
+}
+
+.views-list {
+    a {
+        span {
+            display: block;
+            margin: 0.25em 0 0;
+            color: @gray;
+        }
+    }
+}
+
+.app-list {
+    list-style: none;
+    margin: 0 -6px;
+    .module {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        a {
+            color: @gray;
+        }
+        margin: 1em 0 0;
+        padding: 0 6px 6px;
+        border-bottom: 1px solid @grayLighter;
+    }
+    .model {
+        overflow: hidden;
+        margin: 0;
+        padding: 6px;
+        font-size: 16px;
+        line-height: 20px;
+        -moz-transition: background-color 0.25s;
+        -ms-transition: background-color 0.25s;
+        -webkit-transition: background-color 0.25s;
+        transition: background-color 0.25s;
+        border-bottom: 1px solid @grayLighter;
+        &:hover {
+            background-color: @grayLighter;
+        }
+    }
+    .model-name {
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+    }
+    .actions {
+        float: right;
+        list-style: none;
+        margin: 0;
+        li {
+            margin-left: 0.5em;
+            display: inline;
+        }
+    }
+}
+
+.well > .nav-list,
+.well > .nav-list > li > a,
+.well > .nav-list > .divider {
+    margin-left: -19px;
+    margin-right: -19px;
+    padding-left: 19px;
+    padding-right: 19px;
+}
+
+.well > .nav-list:last-child {
+    margin-bottom: -6px;
+}
+
+.object-tools {
+    text-align: right;
+    margin: 0 0 10px;
+    list-style: none;
+    li {
+        display: inline;
+        margin-left: 0.5em;
+    }
+}
+
+h1 + .object-tools {
+    margin-top: -20px;
+}
+
+#searchbar {
+    width: 168px;
+    margin-right: 5px;
+}
+
+#sb {
+    .well {
+        h2 {
+            font-size: 14px;
+            line-height: 18px;
+            margin: 0 0 0.5em;
+            &:first-child {
+                margin-top: -8px;
+            }
+        }
+    }
+}
+
+.dashboard {
+    #sb {
+        margin-top: 55px;
+    }
+}
+
+.actions {
+    margin: 0 0 20px;
+    label {
+        display: inline-block;
+        margin: 0;
+    }
+    input,
+    select,
+    textarea {
+        margin: 0 5px;
+    }
+    .action-counter {
+        .help-inline;
+    }
+}
+
+.sortable {
+    .text {
+        i {
+            opacity: 0.5;
+        }
+    }
+}
+.sorted {
+    &.ascending {
+        .text {
+            i {
+                .icon-arrow-up;
+                opacity: 1;
+            }
+        }
+    }
+    &.descending {
+        .text {
+            i {
+                .icon-arrow-down;
+                opacity: 1;
+            }
+        }
+    }
+}
+.sortpriority {
+    height: 14px;
+    line-height: 14px;
+}
+
+.alerts {
+    list-style: none;
+    margin: 0;
+    .alert {
+        margin: 0 0 20px;
+    }
+}
+
+.action-checkbox-column {
+    width: 1px;
+}
+
+.change-form {
+    .form-actions {
+        text-align: right;
+    }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: inline;
+}
+
+.form-row {
+    margin: 0 0 20px;
+}
+
+legend + .form-row {
+    padding-top: 10px;
+}
+
+label.required {
+    font-weight: bold;
+}
+
+#reset-password {
+    input {
+        margin-bottom: 0;
+    }
+}

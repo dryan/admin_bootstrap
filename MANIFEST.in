@@ -1,0 +1,4 @@
+include admin_bootstrap
+include setup.py
+include LICENSE
+include README

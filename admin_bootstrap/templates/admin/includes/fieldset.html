@@ -1,0 +1,29 @@
+<fieldset class="module aligned {{ fieldset.classes }}">
+    {% if fieldset.name %}<legend>{{ fieldset.name }}</legend>{% endif %}
+    {% if fieldset.description %}
+        <p class="help-block">{{ fieldset.description|safe }}</p>
+    {% endif %}
+    {% for line in fieldset %}
+        <div class="form-row{% if line.fields|length_is:'1' and line.errors %} errors{% endif %}{% for field in line %}{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% endfor %}">
+            {% for field in line %}
+                <div{% if not line.fields|length_is:'1' %} class="field-box{% if field.field.name %} field-{{ field.field.name }}{% endif %}{% if not field.is_readonly and field.errors %} errors{% endif %}"{% endif %}>
+                    {% if field.is_checkbox or field.is_radio %}
+                        <label for="id_{{ field.field.name }}">{{ field.field }} {{ field.field.label }}</label>
+                    {% else %}
+                        {{ field.label_tag }}
+                        {% if field.is_readonly %}
+                            <p>{{ field.contents }}</p>
+                        {% else %}
+                            {{ field.field }}
+                        {% endif %}
+                    {% endif %}
+		            {% if line.fields|length_is:'1' %}{{ line.errors }}{% endif %}
+                    {% if not line.fields|length_is:'1' and not field.is_readonly %}{{ field.errors }}{% endif %}
+                    {% if field.field.help_text %}
+                        <p class="help-block">{{ field.field.help_text|safe }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</fieldset>

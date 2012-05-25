@@ -1,0 +1,10 @@
+{% load i18n %}
+	{% if not is_first %}
+	<li class="divider"></li>
+	{% endif %}
+	<li class="nav-header">{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</li>
+{% for choice in choices %}
+    <li{% if choice.selected %} class="active"{% endif %}>
+    	<a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a>
+	</li>
+{% endfor %}

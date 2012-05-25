@@ -12,6 +12,8 @@ Django admin templates that are compatible with Twitter Bootstrap version 2.
 
 Alternatively to #2, you can symlink the 'admin', 'admin_doc' and 'registration' folders in 'admin_bootstrap/templates' to your templates folder.
 
+_This has only been tested in Django 1.4._
+
 ## TODO
 
 * Test more Django form field types and admin options.

@@ -1,0 +1,64 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+{% if app_list %}
+	<ul class="app-list">
+    {% for app in app_list %}
+		<li class="module" title="{% blocktrans with name=app.name %}Models available in the {{ name }} application.{% endblocktrans %}"><a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}">{% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}</a></li>
+        {% for model in app.models %}
+            <li class="model {% cycle odd,even %}">
+				<span class="model-name">
+	            {% if model.admin_url %}
+	                <a href="{{ model.admin_url }}">{{ model.name }}</a>
+	            {% else %}
+	                {{ model.name }}
+	            {% endif %}
+				</span>
+
+				{% if model.add_url or model.admin_url %}
+					<ul class="actions">
+					{% if model.add_url %}
+		                <li><a href="{{ model.add_url }}" class="btn btn-success"><i class="icon-plus icon-white"></i> {% trans 'Add' %}</a></li>
+		            {% endif %}
+
+		            {% if model.admin_url %}
+		                <li><a href="{{ model.admin_url }}" class="btn btn-warning"><i class="icon-pencil icon-white"></i> {% trans 'Change' %}</a></li>
+		            {% endif %}
+					</ul>
+				{% endif %}
+            </li>
+        {% endfor %}
+    {% endfor %}
+	</ul>
+{% else %}
+    <p>{% trans "You don't have permission to edit anything." %}</p>
+{% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<div class="well" id="recent-actions-module">
+	<ul class="nav nav-list">
+		<li class="nav-header">{% trans 'My Actions' %}</li>
+		{% load log %}
+        {% get_admin_log 10 as admin_log for_user user %}
+        {% if not admin_log %}
+        <li>{% trans 'None available' %}</li>
+        {% else %}
+        {% for entry in admin_log %}
+        <li>
+            {% if entry.is_deletion or not entry.get_admin_url %}
+                <a><i class="icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i> {% if entry.content_type %}<span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:</span>{% else %}<span class="mini quiet">{% trans 'Unknown content' %}:</span>{% endif %} {{ entry.object_repr }}</a>
+            {% else %}
+                <a href="{{ entry.get_admin_url }}"><i class="icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i> {% if entry.content_type %}<span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:</span>{% else %}<span class="mini quiet">{% trans 'Unknown content' %}:</span>{% endif %} {{ entry.object_repr }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+        {% endif %}
+	</ul>
+</div>
+{% endblock %}
