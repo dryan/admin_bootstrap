@@ -100,9 +100,100 @@ form {
 }
 
 .well > .nav-list,
-.well > .nav-list > li > a {
+.well > .nav-list > li > a,
+.well > .nav-list > .divider {
     margin-left: -19px;
     margin-right: -19px;
     padding-left: 19px;
     padding-right: 19px;
+}
+
+.well > .nav-list:last-child {
+    margin-bottom: -6px;
+}
+
+.object-tools {
+    text-align: right;
+    margin: 0 0 10px;
+    list-style: none;
+    li {
+        display: inline;
+        margin-left: 0.5em;
+    }
+}
+
+#searchbar {
+    width: 168px;
+    margin-right: 5px;
+}
+
+#sb {
+    .well {
+        h2 {
+            font-size: 14px;
+            line-height: 18px;
+            margin: 0 0 0.5em;
+            &:first-child {
+                margin-top: -8px;
+            }
+        }
+    }
+}
+
+.actions {
+    margin: 0 0 20px;
+    label {
+        display: inline-block;
+        margin: 0;
+    }
+    input,
+    select,
+    textarea {
+        margin: 0 5px;
+    }
+    .action-counter {
+        .help-inline;
+    }
+}
+
+.sortable {
+    .text {
+        i {
+            opacity: 0.5;
+        }
+    }
+}
+.sorted {
+    &.ascending {
+        .text {
+            i {
+                .icon-arrow-up;
+                opacity: 1;
+            }
+        }
+    }
+    &.descending {
+        .text {
+            i {
+                .icon-arrow-down;
+                opacity: 1;
+            }
+        }
+    }
+}
+.sortpriority {
+    height: 14px;
+    line-height: 14px;
+}
+
+.alerts {
+    list-style: none;
+    margin: 0;
+    .alert {
+        margin: 0 0 20px;
+    }
+}
+
+.action-checkbox-column {
+    width: 1px;
 }

@@ -52,14 +52,9 @@
         {% for entry in admin_log %}
         <li>
             {% if entry.is_deletion or not entry.get_admin_url %}
-                <a>{{ entry.object_repr }} <i class="pull-right icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i></a>
+                <a><i class="icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i> {% if entry.content_type %}<span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:</span>{% else %}<span class="mini quiet">{% trans 'Unknown content' %}:</span>{% endif %} {{ entry.object_repr }}</a>
             {% else %}
-                <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }} <i class="pull-right icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i></a>
-            {% endif %}
-            {% if entry.content_type %}
-                <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
-            {% else %}
-                <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                <a href="{{ entry.get_admin_url }}"><i class="icon-{% if entry.is_addition %}plus{% endif %}{% if entry.is_change %}pencil{% endif %}{% if entry.is_deletion %}trash{% endif %}"></i> {% if entry.content_type %}<span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}:</span>{% else %}<span class="mini quiet">{% trans 'Unknown content' %}:</span>{% endif %} {{ entry.object_repr }}</a>
             {% endif %}
         </li>
         {% endfor %}
