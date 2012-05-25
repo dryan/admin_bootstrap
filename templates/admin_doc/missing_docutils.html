@@ -3,10 +3,12 @@
 {% load url from future %}
 
 {% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; {% trans 'Documentation' %}</a>
-</div>
+<div class="container">
+	<ul class="breadcrumb">
+		<li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> <span class="divider">/</span></li>
+		<li class="active">{% trans 'Documentation' %}</li>
+	</ul>
+</div><!-- end .container -->
 {% endblock %}
 {% block title %}Please install docutils{% endblock %}
 
@@ -14,10 +16,8 @@
 
 <h1>Documentation</h1>
 
-<div id="content-main">
-  <h3>The admin documentation system requires Python's <a href="http://docutils.sf.net/">docutils</a> library.</h3>
+<h2>The admin documentation system requires Python's <a href="http://docutils.sf.net/">docutils</a> library.</h2>
 
-  <p>Please ask your administrators to install <a href="http://docutils.sf.net/">docutils</a>.</p>
-</div>
+<p>Please ask your administrators to install <a href="http://docutils.sf.net/">docutils</a>.</p>
 
 {% endblock %}

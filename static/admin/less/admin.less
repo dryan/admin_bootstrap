@@ -25,3 +25,30 @@ form {
         margin: 0 0 1em;
     }
 }
+
+.well.nav-list {
+    padding-left: 19px;
+    padding-right: 19px;
+    & > li > a,
+    .nav-header {
+        margin-left: -19px;
+        margin-right: -19px;
+    }
+    .nav-header:first-child {
+        padding-top: 0;
+        margin-top: -6px;
+    }
+    & > li:last-child {
+        margin-bottom: -6px;
+    }
+}
+
+.views-list {
+    a {
+        span {
+            display: block;
+            margin: 0.25em 0 0;
+            color: @gray;
+        }
+    }
+}

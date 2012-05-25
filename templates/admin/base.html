@@ -28,15 +28,20 @@
 		                {% if docsroot %}
 		                    <li{% if request.url == docsroot %} class="active"{% endif %}><a href="{{ docsroot }}" title="{% trans "Documentation" %}">{% trans 'Documentation' %}</a></li>
 		                {% endif %}
-		                	<li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
-		                	<li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
 						</ul><!-- end .nav -->
 		            {% endblock %}
 		        {% endif %}
 		        {% block nav-global %}{% endblock %}
 				<ul class="nav pull-right">
-					<li>
-						<a>{% trans 'Welcome,' %} <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong></a></li>
+					<li class="dropdown">
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">{% trans 'Welcome,' %} <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong> <i class="caret"></i></a>
+						{% if user.is_active and user.is_staff %}
+							<ul class="dropdown-menu">
+								<li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
+			                	<li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
+							</ul>
+						{% endif %}
+					</li>
 		        </ul><!-- end .nav -->
 			</div><!-- end .container -->
 		</div><!-- end .navbar-inner -->
@@ -60,19 +65,25 @@
     {% endblock messages %}
 
     <!-- Content -->
-    <div id="content" class="{% block coltype %}container{% endblock %}">
-        {% block pretitle %}{% endblock %}
-        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
-        {% block content %}
-        {% block object-tools %}{% endblock %}
-        {{ content }}
-        {% endblock %}
-        {% block sidebar %}{% endblock %}
-        <br class="clear" />
-    </div>
+    <div class="container">
+		<div class="row">
+	        {% block pretitle %}{% endblock %}
+	        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+			<div class="span9">
+	        	{% block content %}
+		        {% block object-tools %}{% endblock %}
+		        {{ content }}
+		        {% endblock %}
+			</div><!-- end .span9 -->
+			<div class="span3">
+	        	{% block sidebar %}{% endblock %}
+			</div><!-- end .span3 -->
+		</div><!-- end .row -->
+    </div><!-- end .container -->
     <!-- END Content -->
 
     {% block footer %}<div id="footer"></div>{% endblock %}
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="{% static "admin/js/bootstrap-dropdown.js" %}"></script>
 </body>
 </html>
