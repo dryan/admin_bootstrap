@@ -43,26 +43,27 @@
 			</div><!-- end .container -->
 		</div><!-- end .navbar-inner -->
     </div><!-- end .navbar -->
-    {% block breadcrumbs %}
-    <ul class="breadcrumb">
-		<li{% if request.url == admin_index %} class="active"{% endif %}>
-    		<a href="{% url 'admin:index' %}" title="{% trans "Home" %}">{% trans 'Home' %}</a>
-		</li>
-    	{% if title %}<li class="active">{{ title }}</li>{% endif %}
-    </div>
-    {% endblock %}
-    {% endif %}
-
-    {% block messages %}
-        {% if messages %}
-        <ul class="messagelist">{% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}</ul>
-        {% endif %}
-    {% endblock messages %}
 
     <!-- Content -->
     <div class="container">
+	    {% block breadcrumbs %}
+	    <ul class="breadcrumb">
+			<li{% if request.url == admin_index %} class="active"{% endif %}>
+	    		<a href="{% url 'admin:index' %}" title="{% trans "Home" %}">{% trans 'Home' %}</a>
+			</li>
+	    	{% if title %}<li class="active">{{ title }}</li>{% endif %}
+	    </div>
+	    {% endblock %}
+	    {% endif %}
+
+	    {% block messages %}
+	        {% if messages %}
+	        <ul class="messagelist">{% for message in messages %}
+	          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	        {% endfor %}</ul>
+	        {% endif %}
+	    {% endblock messages %}
+
 		<div class="row">
 			<div class="span9">
 		        {% block pretitle %}{% endblock %}

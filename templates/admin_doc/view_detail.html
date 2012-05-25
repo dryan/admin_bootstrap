@@ -3,14 +3,12 @@
 {% load url from future %}
 
 {% block breadcrumbs %}
-<div class="container">
-	<ul class="breadcrumb">
-		<li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> <span class="divider">/</span></li>
-		<li><a href="{% url 'django-admindocs-docroot' %}">{% trans 'Documentation' %}</a> <span class="divider">/</span></li>
-		<li><a href="{% url 'django-admindocs-views-index' %}">{% trans 'Views' %}</a> <span class="divider">/</span></li>
-		<li class="active">{{ name }}</li>
-	</ul>
-</div><!-- end .container -->
+<ul class="breadcrumb">
+	<li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> <span class="divider">/</span></li>
+	<li><a href="{% url 'django-admindocs-docroot' %}">{% trans 'Documentation' %}</a> <span class="divider">/</span></li>
+	<li><a href="{% url 'django-admindocs-views-index' %}">{% trans 'Views' %}</a> <span class="divider">/</span></li>
+	<li class="active">{{ name }}</li>
+</ul>
 {% endblock %}
 {% block title %}View: {{ name }}{% endblock %}
 
