@@ -7,6 +7,14 @@
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script charset="utf-8">
+	if(!window.django) {
+		window.django	=	{};
+	}
+	var django		=	window.django;
+	django.jQuery	=	jQuery;
+</script>
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
@@ -88,14 +96,6 @@
     <!-- END Content -->
 
     {% block footer %}<div id="footer"></div>{% endblock %}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script charset="utf-8">
-		if(!window.django) {
-			window.django	=	{};
-		}
-		var django		=	window.django;
-		django.jQuery	=	jQuery;
-	</script>
 	<script src="{% static "admin/js/bootstrap-dropdown.js" %}"></script>
 	<script src="{% static "admin/js/bootstrap-alert.js" %}"></script>
 	{% block extrascripts %}{% endblock extrascripts %}
