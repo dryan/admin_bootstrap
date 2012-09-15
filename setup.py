@@ -5,8 +5,8 @@ from setuptools import find_packages
 
 setup(
     name                    =   'admin_bootstrap',
-    version                 =   '0.6.0',
-    description             =   'Django admin templates that are compatible with Twitter Bootstrap version 2.',
+    version                 =   '0.7.0',
+    description             =   'Django admin templates that are compatible with Twitter Bootstrap version 2.1.0',
     author                  =   'Daniel Ryan',
     author_email            =   'dryan@dryan.com',
     url                     =   'https://github.com/dryan/admin_bootstrap',
